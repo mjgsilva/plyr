@@ -2771,6 +2771,9 @@
 
                 // Set attributes for audio and video
                 if (_inArray(config.types.html5, plyr.type)) {
+                    if ('preload' in source) {
+                      plyr.media.setAttribute('preload', source.preload);
+                    }
                     if (config.crossorigin) {
                         plyr.media.setAttribute('crossorigin', '');
                     }
@@ -2806,7 +2809,9 @@
                     }
 
                     // Load HTML5 sources
-                    plyr.media.load();
+                    if (('forceload' in source) && source.forceload) {
+                      plyr.media.load();
+                    }
                 }
 
                 // If HTML5 or embed but not fully supported, setupInterface and call ready now

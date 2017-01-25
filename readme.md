@@ -640,6 +640,8 @@ Video example:
 player.source({
   type:       'video',
   title:      'Example title',
+  forceload:   false,
+  preload:     'metadata',
   sources: [{
       src:    '/path/to/movie.mp4',
       type:   'video/mp4'
